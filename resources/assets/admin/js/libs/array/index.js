@@ -1,0 +1,3 @@
+if(Array.hasOwnProperty('exist')){
+
+}

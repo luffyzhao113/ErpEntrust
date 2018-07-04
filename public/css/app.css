@@ -1,0 +1,161 @@
+html,
+body,
+.layout {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.layout > .ivu-layout {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.layout > .ivu-layout .ivu-layout-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.layout > .ivu-layout .ivu-layout-content .layout-content-main {
+  flex: auto;
+  -webkit-box-flex: 1;
+  -ms-flex: auto;
+}
+
+.layout > .ivu-layout .ivu-layout-header {
+  height: 50px;
+  line-height: 50px;
+  padding: 0px;
+  background-color: #09C;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px 2px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 3px 2px;
+}
+
+.layout > .ivu-layout .ivu-layout-header .logo {
+  width: 200px;
+  height: 50px;
+  background-color: white;
+}
+
+.layout > .ivu-layout .layout-footer-center {
+  text-align: center;
+}
+
+.layout > .ivu-layout .layout-content-main {
+  padding: 15px;
+  position: relative;
+}
+
+.layout > .ivu-layout .layout-content-main > div {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  bottom: 15px;
+  right: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.layout > .ivu-layout .layout-content-main > div .ivu-card {
+  margin-bottom: 15px;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list {
+  flex: auto;
+  -webkit-box-flex: 1;
+  -ms-flex: auto;
+  position: relative;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -ms-flex-positive: 1;
+      flex-grow: 1;
+  overflow: hidden;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper {
+  height: calc(100% - 40px);
+  margin-bottom: 15px;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table .ivu-table-fixed {
+  height: inherit;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table .ivu-table-body {
+  height: calc(100% - 40px);
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table .ivu-table-fixed-body {
+  height: calc(100% - 40px - 20px);
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table .poptip-button-box .ivu-poptip {
+  margin-left: 5px;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table .poptip-button-box .ivu-poptip:first-child {
+  margin-left: 0;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table-small .ivu-table-fixed {
+  height: inherit;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table-small .ivu-table-body {
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: calc(100% - 32px);
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table-small .ivu-table-fixed-body {
+  height: calc(100% - 32px - 20px);
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table-large .ivu-table-fixed {
+  height: inherit;
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table-large .ivu-table-body {
+  height: calc(100% - 48px);
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-table-wrapper .ivu-table-large .ivu-table-fixed-body {
+  height: calc(100% - 48px - 20px);
+}
+
+.layout > .ivu-layout .layout-content-main > div .box-flex-list .ivu-card .ivu-card-body .ivu-page {
+  text-align: right;
+}
+
