@@ -25,11 +25,15 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file('file');
-        $path = $file->getClientOriginalExtension() . date('/Y/m-d');
-        $filename = Storage::putFile($path, $file);
+//        $file = $request->file('file');
+//        $path = $file->getClientOriginalExtension() . date('/Y/m-d');
+//        $filename = Storage::putFile($path, $file);
+//        return $this->respondWithSuccess([
+//            'url' => Storage::url($filename)
+//        ]);
+
         return $this->respondWithSuccess([
-            'url' => Storage::url($filename)
+            'url' => 'https://lorempixel.com/400/400/'
         ]);
     }
 }
