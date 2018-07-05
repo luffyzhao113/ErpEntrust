@@ -33,6 +33,7 @@ class StoreRequest extends FormRequest
             'islink' => ['required', 'numeric', 'in:0,1'],
             'display_name' => ['required', 'string', 'between:2,50'],
             'description' => ['nullable', 'string', 'max:200'],
+            'sort' => ['required', 'integer', 'between:0,999'],
         ];
     }
 
@@ -53,6 +54,7 @@ class StoreRequest extends FormRequest
             'islink' => '是否菜单',
             'display_name' => '权限名称',
             'description' => '权限说明',
+            'sort' => '排序'
         ];
     }
 }

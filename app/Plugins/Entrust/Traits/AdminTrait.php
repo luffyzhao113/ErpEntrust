@@ -37,57 +37,6 @@ trait AdminTrait
         else return $this->roles()->first();
     }
 
-    /**
-     * eloquent save 后刷新缓存
-     * @method save
-     * @param array $options
-     *
-     * @return mixed
-     *
-     * @author luffyzhao@vip.126.com
-     */
-    public function save(array $options = [])
-    {   //both inserts and updates
-        if(Cache::getStore() instanceof TaggableStore) {
-            Cache::tags('BaseAuth')->flush();
-        }
-        return parent::save($options);
-    }
-
-    /**
-     * eloquent delete 后刷新缓存
-     * @method delete
-     * @param array $options
-     *
-     * @return mixed
-     *
-     * @author luffyzhao@vip.126.com
-     */
-    public function delete(array $options = [])
-    {   //soft or hard
-        $result = parent::delete($options);
-        if(Cache::getStore() instanceof TaggableStore) {
-            Cache::tags('BaseAuth')->flush();
-        }
-        return $result;
-    }
-
-    /**
-     * eloquent restore 后刷新缓存
-     * @method restore
-     *
-     * @return mixed
-     *
-     * @author luffyzhao@vip.126.com
-     */
-    public function restore()
-    {   //soft delete undo's
-        $result = parent::restore();
-        if(Cache::getStore() instanceof TaggableStore) {
-            Cache::tags('BaseAuth')->flush();
-        }
-        return $result;
-    }
 
     /**
      * 多对多关联角色表

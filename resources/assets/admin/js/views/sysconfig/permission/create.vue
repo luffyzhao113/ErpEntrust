@@ -10,6 +10,9 @@
             <FormItem label="上级菜单" prop="parent_id">
                 <group-cascader v-model="formCreate.parent_id" placeholder="顶级菜单可不选择" :data="parents"></group-cascader>
             </FormItem>
+            <FormItem label="排序" prop="sort" :rules="{required: true, message: '排序不能为空'}">
+                <Input v-model="formCreate.sort" placeholder="排序"></Input>
+            </FormItem>
             <FormItem label="菜单图标" prop="icon">
                 <Input v-model="formCreate.icon" placeholder="菜单图标"></Input>
             </FormItem>
@@ -51,7 +54,8 @@
           parent_id: 0,
           icon: '',
           display_name: '',
-          description: ''
+          description: '',
+          sort: 1
         },
         parents: []
       }

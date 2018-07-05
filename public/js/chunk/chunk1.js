@@ -6,13 +6,13 @@ webpackJsonp([1],{
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(144)
+  __webpack_require__(154)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(146)
+var __vue_script__ = __webpack_require__(156)
 /* template */
-var __vue_template__ = __webpack_require__(170)
+var __vue_template__ = __webpack_require__(180)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -410,13 +410,13 @@ if (false) {
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(151)
+  __webpack_require__(161)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(153)
+var __vue_script__ = __webpack_require__(163)
 /* template */
-var __vue_template__ = __webpack_require__(154)
+var __vue_template__ = __webpack_require__(164)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -462,13 +462,13 @@ module.exports = Component.exports
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(155)
+  __webpack_require__(165)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(157)
+var __vue_script__ = __webpack_require__(167)
 /* template */
-var __vue_template__ = __webpack_require__(158)
+var __vue_template__ = __webpack_require__(168)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -508,13 +508,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 144:
+/***/ 154:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(145);
+var content = __webpack_require__(155);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -535,7 +535,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 145:
+/***/ 155:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -550,7 +550,7 @@ exports.push([module.i, "\n.permission-role .ivu-table-body {\n    overflow-y: a
 
 /***/ }),
 
-/***/ 146:
+/***/ 156:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -564,15 +564,15 @@ var _lists = __webpack_require__(117);
 
 var _lists2 = _interopRequireDefault(_lists);
 
-var _create = __webpack_require__(147);
+var _create = __webpack_require__(157);
 
 var _create2 = _interopRequireDefault(_create);
 
-var _update = __webpack_require__(160);
+var _update = __webpack_require__(170);
 
 var _update2 = _interopRequireDefault(_update);
 
-var _tabelExpandTree = __webpack_require__(165);
+var _tabelExpandTree = __webpack_require__(175);
 
 var _tabelExpandTree2 = _interopRequireDefault(_tabelExpandTree);
 
@@ -622,6 +622,9 @@ exports.default = {
       }, {
         title: '菜单路径',
         key: 'name'
+      }, {
+        title: '排序',
+        key: 'sort'
       }, {
         title: '是否菜单',
         render: function render(h, _ref2) {
@@ -698,19 +701,19 @@ exports.default = {
 
 /***/ }),
 
-/***/ 147:
+/***/ 157:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(148)
+  __webpack_require__(158)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(150)
+var __vue_script__ = __webpack_require__(160)
 /* template */
-var __vue_template__ = __webpack_require__(159)
+var __vue_template__ = __webpack_require__(169)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -750,13 +753,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 148:
+/***/ 158:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(149);
+var content = __webpack_require__(159);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -777,7 +780,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 149:
+/***/ 159:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -785,14 +788,14 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 150:
+/***/ 160:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -839,7 +842,8 @@ exports.default = {
         parent_id: 0,
         icon: '',
         display_name: '',
-        description: ''
+        description: '',
+        sort: 1
       },
       parents: []
     };
@@ -884,16 +888,19 @@ exports.default = {
 //
 //
 //
+//
+//
+//
 
 /***/ }),
 
-/***/ 151:
+/***/ 161:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(152);
+var content = __webpack_require__(162);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -914,7 +921,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 152:
+/***/ 162:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -929,7 +936,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 /***/ }),
 
-/***/ 153:
+/***/ 163:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -976,7 +983,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 154:
+/***/ 164:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1030,13 +1037,13 @@ if (false) {
 
 /***/ }),
 
-/***/ 155:
+/***/ 165:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(156);
+var content = __webpack_require__(166);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1057,7 +1064,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 156:
+/***/ 166:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -1072,7 +1079,7 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 /***/ }),
 
-/***/ 157:
+/***/ 167:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1174,7 +1181,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 158:
+/***/ 168:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1209,7 +1216,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 159:
+/***/ 169:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1291,6 +1298,30 @@ var render = function() {
                     _vm.$set(_vm.formCreate, "parent_id", $$v)
                   },
                   expression: "formCreate.parent_id"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "FormItem",
+            {
+              attrs: {
+                label: "排序",
+                prop: "sort",
+                rules: { required: true, message: "排序不能为空" }
+              }
+            },
+            [
+              _c("Input", {
+                attrs: { placeholder: "排序" },
+                model: {
+                  value: _vm.formCreate.sort,
+                  callback: function($$v) {
+                    _vm.$set(_vm.formCreate, "sort", $$v)
+                  },
+                  expression: "formCreate.sort"
                 }
               })
             ],
@@ -1412,19 +1443,19 @@ if (false) {
 
 /***/ }),
 
-/***/ 160:
+/***/ 170:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(161)
+  __webpack_require__(171)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(163)
+var __vue_script__ = __webpack_require__(173)
 /* template */
-var __vue_template__ = __webpack_require__(164)
+var __vue_template__ = __webpack_require__(174)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1464,13 +1495,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 161:
+/***/ 171:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(162);
+var content = __webpack_require__(172);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1491,7 +1522,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 162:
+/***/ 172:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -1499,14 +1530,14 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
 
 /***/ }),
 
-/***/ 163:
+/***/ 173:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1553,7 +1584,8 @@ exports.default = {
         parent_id: 0,
         icon: '',
         display_name: '',
-        description: ''
+        description: '',
+        sort: 1
       },
       parents: []
     };
@@ -1605,10 +1637,13 @@ exports.default = {
 //
 //
 //
+//
+//
+//
 
 /***/ }),
 
-/***/ 164:
+/***/ 174:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -1690,6 +1725,27 @@ var render = function() {
                     _vm.$set(_vm.formUpdate, "parent_id", $$v)
                   },
                   expression: "formUpdate.parent_id"
+                }
+              })
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "FormItem",
+            { attrs: { label: "排序", prop: "sort" } },
+            [
+              _c("Input", {
+                attrs: {
+                  placeholder: "排序",
+                  rules: { required: true, message: "排序不能为空" }
+                },
+                model: {
+                  value: _vm.formUpdate.sort,
+                  callback: function($$v) {
+                    _vm.$set(_vm.formUpdate, "sort", $$v)
+                  },
+                  expression: "formUpdate.sort"
                 }
               })
             ],
@@ -1810,19 +1866,19 @@ if (false) {
 
 /***/ }),
 
-/***/ 165:
+/***/ 175:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(166)
+  __webpack_require__(176)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(168)
+var __vue_script__ = __webpack_require__(178)
 /* template */
-var __vue_template__ = __webpack_require__(169)
+var __vue_template__ = __webpack_require__(179)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -1862,13 +1918,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 166:
+/***/ 176:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(167);
+var content = __webpack_require__(177);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -1889,7 +1945,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 167:
+/***/ 177:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -1904,7 +1960,7 @@ exports.push([module.i, "\n.ivu-table-expanded-cell {\n  padding: 0 !important;\
 
 /***/ }),
 
-/***/ 168:
+/***/ 178:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1993,7 +2049,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 169:
+/***/ 179:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -2014,7 +2070,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 170:
+/***/ 180:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {

@@ -1156,16 +1156,16 @@
         },
         {
             "name": "luffyzhao/laravel-tools",
-            "version": "v1.1",
+            "version": "v1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/luffyzhao/luffy-laravel-tools.git",
-                "reference": "797bfe16dc04bb372b924ab56d312a56be43c534"
+                "reference": "4fd1a6ed52f09bc10e2e3f303b1b81356ac4a2ae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/luffyzhao/luffy-laravel-tools/zipball/797bfe16dc04bb372b924ab56d312a56be43c534",
-                "reference": "797bfe16dc04bb372b924ab56d312a56be43c534",
+                "url": "https://api.github.com/repos/luffyzhao/luffy-laravel-tools/zipball/4fd1a6ed52f09bc10e2e3f303b1b81356ac4a2ae",
+                "reference": "4fd1a6ed52f09bc10e2e3f303b1b81356ac4a2ae",
                 "shasum": ""
             },
             "require": {
@@ -1201,7 +1201,7 @@
                     "email": "luffyzhao@vip.126.com"
                 }
             ],
-            "time": "2018-07-05T02:16:19+00:00"
+            "time": "2018-07-05T04:21:13+00:00"
         },
         {
             "name": "maatwebsite/excel",

@@ -43,6 +43,10 @@
             key: 'name'
           },
           {
+            title: '排序',
+            key: 'sort'
+          },
+          {
             title: '是否菜单',
             render: (h, {row}) =>{
               return (<span>{row.islink ? '菜单' : '权限'}</span>)

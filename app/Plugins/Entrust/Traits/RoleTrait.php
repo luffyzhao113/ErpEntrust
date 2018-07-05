@@ -62,66 +62,6 @@ trait RoleTrait
     }
 
     /**
-     * eloquent save 后刷新缓存
-     * @method save
-     * @param array $options
-     *
-     * @return bool
-     *
-     * @author luffyzhao@vip.126.com
-     */
-    public function save(array $options = [])
-    {   //both inserts and updates
-        if (!parent::save($options)) {
-            return false;
-        }
-        if (Cache::getStore() instanceof TaggableStore) {
-            Cache::tags('BaseAuth')->flush();
-        }
-        return true;
-    }
-
-    /**
-     * eloquent delete 后刷新缓存
-     * @method delete
-     * @param array $options
-     *
-     * @return bool
-     *
-     * @author luffyzhao@vip.126.com
-     */
-    public function delete(array $options = [])
-    {   //soft or hard
-        if (!parent::delete($options)) {
-            return false;
-        }
-        if (Cache::getStore() instanceof TaggableStore) {
-            Cache::tags('BaseAuth')->flush();
-        }
-        return true;
-    }
-
-    /**
-     * eloquent restore 后刷新缓存
-     * @method delete
-     * @param array $options
-     *
-     * @return bool
-     *
-     * @author luffyzhao@vip.126.com
-     */
-    public function restore()
-    {   //soft delete undo's
-        if (!parent::restore()) {
-            return false;
-        }
-        if (Cache::getStore() instanceof TaggableStore) {
-            Cache::tags('BaseAuth')->flush();
-        }
-        return true;
-    }
-
-    /**
      * 用户模型
      * @method users
      *
@@ -147,24 +87,4 @@ trait RoleTrait
         return $this->belongsToMany($this->entrustPermissionModel, $this->entrustPermissionRoleTable, 'role_id', 'permission_id');
     }
 
-    /**
-     * 定义删除事件
-     * @method boot
-     *
-     * @static
-     *
-     * @author luffyzhao@vip.126.com
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleting(function ($role) {
-            if (!method_exists(static::class, 'bootSoftDeletes')) {
-                $role->perms()->sync([]);
-            }
-
-            return true;
-        });
-    }
 }

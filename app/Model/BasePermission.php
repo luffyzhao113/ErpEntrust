@@ -10,7 +10,7 @@ class BasePermission extends Model
 {
     use PermissionTrait;
 
-    protected $fillable = ['parent_id', 'name', 'icon', 'islink', 'display_name', 'description'];
+    protected $fillable = ['parent_id', 'name', 'icon', 'islink', 'display_name', 'description', 'sort'];
 
     protected $entrustPermissionModel = BasePermission::class;
 
@@ -21,7 +21,7 @@ class BasePermission extends Model
      */
     public static function boot(){
         static::addGlobalScope('orderBy', function(Builder $builder) {
-            $builder->orderBy('id', 'DESC');
+            $builder->orderBy('sort', 'ASC')->orderBy('id', 'DESC');
         });
     }
 }

@@ -38,24 +38,4 @@ trait PermissionTrait
         return $this->belongsToMany($this->entrustPermissionModel, $this->entrustPermissionRoleTable, 'permission_id', 'role_id');
     }
 
-    /**
-     * 删除事件
-     * @method boot
-     *
-     * @static
-     *
-     * @author luffyzhao@vip.126.com
-     */
-    public static function boot()
-    {
-        parent::boot();
-
-        static::deleting(function($permission) {
-            if (!method_exists(static::class, 'bootSoftDeletes')) {
-                $permission->roles()->sync([]);
-            }
-
-            return true;
-        });
-    }
 }

@@ -39,7 +39,7 @@ class PermissionController extends Controller
         return $this->respondWithSuccess(
             $this->repo->getWhere(
                 $search->toArray(),
-                ['id', 'parent_id', 'name', 'icon', 'islink', 'display_name as title']
+                ['id', 'parent_id', 'name', 'icon', 'islink', 'display_name as title', 'sort']
             )
         );
     }
@@ -56,7 +56,7 @@ class PermissionController extends Controller
     public function store(StoreRequest $request)
     {
         return $this->respondWithSuccess(
-            $this->repo->create($request->only(['parent_id', 'name', 'icon', 'islink', 'display_name', 'description']))
+            $this->repo->create($request->only(['parent_id', 'name', 'icon', 'islink', 'display_name', 'description', 'sort']))
         );
     }
 
@@ -73,7 +73,7 @@ class PermissionController extends Controller
     public function show(Request $request, $id)
     {
         return $this->respondWithSuccess(
-            $this->repo->find($id, ['id', 'parent_id', 'name', 'icon', 'islink', 'display_name', 'description'])
+            $this->repo->find($id, ['id', 'parent_id', 'name', 'icon', 'islink', 'display_name', 'description', 'sort'])
         );
     }
 
@@ -92,7 +92,7 @@ class PermissionController extends Controller
         return $this->respondWithSuccess(
             $this->repo->updateOrCreate(
                 ['id' => $id],
-                $request->only(['parent_id', 'name', 'icon', 'islink', 'display_name', 'description'])
+                $request->only(['parent_id', 'name', 'icon', 'islink', 'display_name', 'description', 'sort'])
             )
         );
     }
