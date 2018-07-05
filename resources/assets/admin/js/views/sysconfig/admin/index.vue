@@ -1,7 +1,7 @@
 <template>
     <my-lists v-model="data" :columns="columns" @change="search">
 
-        <Card :bordered="false">
+        <Card>
             <p slot="title">
                 <span>搜索</span>
             </p>
@@ -16,10 +16,7 @@
                     <Input type="text" v-model="searchForm.email"></Input>
                 </FormItem>
                 <FormItem prop="status" label="状态" :label-width="40">
-                    <Select v-model="searchForm.status" clearable>
-                        <Option :value="1">开启</Option>
-                        <Option :value="0">关闭</Option>
-                    </Select>
+                    <true-or-false v-model="searchForm.status" true-value="开启" false-value="关闭"></true-or-false>
                 </FormItem>
                 <FormItem :label-width="1">
                     <Button @click="search(1)" type="primary">搜索</Button>
@@ -37,10 +34,12 @@
     import Update from "./update";
     import Create from "./create"
     import RolesSelect from "../../components/roles/select";
+    import TrueOrFalse from "../../../components/select/true-or-false";
     
     export default {
         name: "index",
         components: {
+            TrueOrFalse,
           RolesSelect,
           MyLists, Create, Update},
         mixins: [lists],

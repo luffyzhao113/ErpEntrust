@@ -16,7 +16,7 @@ class IndexSearch extends SearchAbstract
     protected $relationship = [
         'role_id' => '=',
         'name' => 'like',
-        'status' => '',
+        'status' => '=',
         'email' => 'like'
     ];
 

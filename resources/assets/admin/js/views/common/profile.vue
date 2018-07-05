@@ -1,6 +1,6 @@
 <template lang="html">
     <div>
-      <Card :bordered="false">
+      <Card>
         <p slot="title"><Icon type="ios-person"></Icon>个人信息</p>
         <div>
           <Form :model="formUpdate" label-position="right" :label-width="100" ref="formUpdate" :rules="ruleCreate">

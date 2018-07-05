@@ -1,5 +1,5 @@
 <template>
-    <Card :bordered="false">
+    <Card>
         <p slot="title">日志</p>
         <Table :columns="columns" :data="data"></Table>
     </Card>

@@ -20,6 +20,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('auth/message', 'Auth\MessageController@index');
 
     Route::get('role/select', 'RoleController@select');
+    Route::get('admin/select', 'AdminController@select');
     Route::post('file', 'FileController@store')->name('file.store');
 
     Route::group(['middleware' => ['entrust:base']], function (){

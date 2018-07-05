@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="box-flex-list">
-            <Card :bordered="false">
+            <Card>
                 <p slot="title">
                     <span>列表</span>
                     <Button size="small" type="success" @click="showComponent('Create')">添加</Button>

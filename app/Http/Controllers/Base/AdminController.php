@@ -52,6 +52,22 @@ class AdminController extends Controller
     }
 
     /**
+     * 所有用户用于select
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     * @throws \luffyzhao\laravelTools\Searchs\Exceptions\SearchException
+     */
+    public function select(Request $request){
+        $search = new IndexSearch($request->only(['status']));
+        return $this->respondWithSuccess(
+            $this->repo->getWhere(
+                $search->toArray(),
+                ['id', 'name', 'email']
+            )
+        );
+    }
+
+    /**
      * 添加用户
      * @method store
      * @param StoreRequest $request

@@ -1,4 +1,4 @@
-webpackJsonp([11],[
+webpackJsonp([12],[
 /* 0 */,
 /* 1 */
 /***/ (function(module, exports) {
@@ -1890,9 +1890,9 @@ var _vuex = __webpack_require__(11);
 
 var _vuex2 = _interopRequireDefault(_vuex);
 
-var _admin = __webpack_require__(34);
+var _layout = __webpack_require__(242);
 
-var _admin2 = _interopRequireDefault(_admin);
+var _layout2 = _interopRequireDefault(_layout);
 
 var _messages = __webpack_require__(36);
 
@@ -1906,6 +1906,10 @@ var _auth = __webpack_require__(38);
 
 var _auth2 = _interopRequireDefault(_auth);
 
+var _admin = __webpack_require__(34);
+
+var _admin2 = _interopRequireDefault(_admin);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 _vue2.default.use(_vuex2.default);
@@ -1915,10 +1919,11 @@ var store = new _vuex2.default.Store({
     mutations: {},
     actions: {},
     modules: {
-        App: _admin2.default,
+        App: _layout2.default,
         Messages: _messages2.default,
         Role: _roles2.default,
-        Auth: _auth2.default
+        Auth: _auth2.default,
+        Admin: _admin2.default
     }
 });
 
@@ -1932,113 +1937,18 @@ exports.default = store;
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-var _cache = __webpack_require__(5);
-
-var _cache2 = _interopRequireDefault(_cache);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var app = {
-  state: {
-    currentPage: 'common.home',
-    notCachePages: ['common.login', 'common.error-404', 'common.error-403', 'common.error-500', 'common.lock'],
-    openPageList: [{
-      meta: { title: '首页' },
-      path: '/admin/home',
-      name: 'common.home'
-    }],
-    body: {
-      width: document.body.clientWidth,
-      height: document.body.clientHeight
+exports.default = {
+    state: {
+        data: []
     },
-    layoutContent: {
-      height: 0
+    mutations: {
+        setAdminData: function setAdminData(state, data) {
+            state.data = data;
+        }
     }
-  },
-  mutations: {
-    init: function init(state) {
-      state.openPageList = _cache2.default.$cache.get('openPageList') || state.openPageList;
-      state.currentPage = _cache2.default.$cache.get('currentPage') || state.currentPage;
-      state.body.width = document.body.clientWidth;
-      state.body.height = document.body.clientHeight;
-      state.layoutContent.height = state.body.height - 42 - 60;
-      window.addEventListener('resize', function () {
-        state.body.width = document.body.clientWidth;
-        state.body.height = document.body.clientHeight;
-        state.layoutContent.height = state.body.height - 42 - 60;
-      });
-    },
-    openPage: function openPage(state, router) {
-      var exist = state.notCachePages.find(function (val) {
-        return val === router.name;
-      });
-      if (!exist) {
-        if (state.openPageList.findIndex(function (n) {
-          return n.name === router.name;
-        }) === -1) {
-          state.openPageList.push({
-            meta: router.meta,
-            path: router.path,
-            name: router.name
-          });
-          _cache2.default.$cache.set('openPageList', state.openPageList);
-        }
-        state.currentPage = router.name;
-        _cache2.default.$cache.set('currentPage', state.currentPage);
-      }
-    },
-    closePage: function closePage(state, data) {
-      var closePage = state.openPageList[data.index];
-      if ((typeof closePage === 'undefined' ? 'undefined' : _typeof(closePage)) === 'object') {
-        if (closePage.name === state.currentPage) {
-          state.currentPage = state.openPageList[data.index - 1].name;
-          _cache2.default.$cache.set('currentPage', state.currentPage);
-          data.vm.$router.push(state.openPageList[data.index - 1]);
-        }
-        state.openPageList.splice(data.index, 1);
-        _cache2.default.$cache.set('openPageList', state.openPageList);
-      }
-    },
-    closePages: function closePages(state, data) {
-      if (data.name === 'closeAll') {
-        state.openPageList.splice(1);
-        _cache2.default.$cache.set('openPageList', state.openPageList);
-        if (state.currentPage !== state.openPageList[0].name) {
-          state.currentPage = state.openPageList[0].name;
-          _cache2.default.$cache.set('currentPage', state.currentPage);
-          data.vm.$router.push(state.openPageList[0]);
-        }
-      } else {
-        var index = state.openPageList.findIndex(function (n) {
-          return n.name === state.currentPage;
-        });
-        var arr = [];
-
-        arr.push(state.openPageList[0]);
-        if (index !== 0) {
-          arr.push(state.openPageList[index]);
-        }
-        state.openPageList = arr;
-        _cache2.default.$cache.set('openPageList', state.openPageList);
-      }
-    },
-    savePageCache: function savePageCache(state, cache) {
-      _cache2.default.$cache.set(state.currentPage + '_formSaveDraft', cache);
-    }
-  },
-  actions: {
-    getSavePageCache: function getSavePageCache(state) {
-      return _cache2.default.$cache.get(state.state.currentPage + '_formSaveDraft');
-    }
-  }
 };
-
-exports.default = app;
 
 /***/ }),
 /* 35 */
@@ -2152,49 +2062,49 @@ var IndexRouter = exports.IndexRouter = [{
   name: 'common.home',
   meta: { title: '首页' },
   component: function component(resolve) {
-    __webpack_require__.e/* require */(17).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(104)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(4).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(104)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }, {
   path: 'profile',
   name: 'common.profile',
   meta: { title: '个人中心' },
   component: function component(resolve) {
-    __webpack_require__.e/* require */(20).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(105)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(9).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(105)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }, {
   path: 'sysconfig.permission',
   name: 'sysconfig.permission.index',
   meta: { title: '权限&菜单' },
   component: function component(resolve) {
-    __webpack_require__.e/* require */(14).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(106)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(1).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(106)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }, {
   path: 'sysconfig.role',
   name: 'sysconfig.role.index',
   meta: { title: '角色管理' },
   component: function component(resolve) {
-    __webpack_require__.e/* require */(16).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(107)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(3).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(107)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }, {
   path: 'sysconfig.admin',
   name: 'sysconfig.admin.index',
   meta: { title: '用户管理' },
   component: function component(resolve) {
-    __webpack_require__.e/* require */(15).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(108)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(2).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(108)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }, {
   path: 'sysconfig.logs',
   name: 'sysconfig.logs.index',
   meta: { title: '日志管理' },
   component: function component(resolve) {
-    __webpack_require__.e/* require */(18).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(109)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(5).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(109)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }, {
   path: 'common.message',
   name: 'common.message',
   meta: { title: '消息管理' },
   component: function component(resolve) {
-    __webpack_require__.e/* require */(19).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(237)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(6).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(110)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }];
 
@@ -2608,7 +2518,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 var commonRouter = exports.commonRouter = [{
   path: 'login', name: 'common.login', meta: { title: 'Login - 登录' }, component: function component(resolve) {
-    __webpack_require__.e/* require */(6).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(110)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(7).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(111)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }, {
   path: '403', name: 'common.403', meta: { title: '403-权限不足' }, component: function component(resolve) {
@@ -2616,11 +2526,11 @@ var commonRouter = exports.commonRouter = [{
   }
 }, {
   path: '500', name: 'common.500', meta: { title: '500-服务端错误' }, component: function component(resolve) {
-    __webpack_require__.e/* require */(9).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(111)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(10).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(112)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }, {
   path: 'lock', name: 'common.lock', meta: { title: 'Lock - 锁定' }, component: function component(resolve) {
-    __webpack_require__.e/* require */(7).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(112)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(8).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(113)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }, {
   path: '403', name: 'common.403-权限不足', meta: { title: '403-权限不足' }, component: function component(resolve) {
@@ -2628,7 +2538,7 @@ var commonRouter = exports.commonRouter = [{
   }
 }, {
   path: '*', name: 'common.error-404', meta: { title: '404-页面不存在' }, component: function component(resolve) {
-    __webpack_require__.e/* require */(10).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(113)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
+    __webpack_require__.e/* require */(11).then(function() { var __WEBPACK_AMD_REQUIRE_ARRAY__ = [__webpack_require__(114)]; ((resolve).apply(null, __WEBPACK_AMD_REQUIRE_ARRAY__));}.bind(this)).catch(__webpack_require__.oe);
   }
 }];
 
@@ -4318,6 +4228,261 @@ var $http = exports.$http = instance;
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 103 */,
+/* 104 */,
+/* 105 */,
+/* 106 */,
+/* 107 */,
+/* 108 */,
+/* 109 */,
+/* 110 */,
+/* 111 */,
+/* 112 */,
+/* 113 */,
+/* 114 */,
+/* 115 */,
+/* 116 */,
+/* 117 */,
+/* 118 */,
+/* 119 */,
+/* 120 */,
+/* 121 */,
+/* 122 */,
+/* 123 */,
+/* 124 */,
+/* 125 */,
+/* 126 */,
+/* 127 */,
+/* 128 */,
+/* 129 */,
+/* 130 */,
+/* 131 */,
+/* 132 */,
+/* 133 */,
+/* 134 */,
+/* 135 */,
+/* 136 */,
+/* 137 */,
+/* 138 */,
+/* 139 */,
+/* 140 */,
+/* 141 */,
+/* 142 */,
+/* 143 */,
+/* 144 */,
+/* 145 */,
+/* 146 */,
+/* 147 */,
+/* 148 */,
+/* 149 */,
+/* 150 */,
+/* 151 */,
+/* 152 */,
+/* 153 */,
+/* 154 */,
+/* 155 */,
+/* 156 */,
+/* 157 */,
+/* 158 */,
+/* 159 */,
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */,
+/* 169 */,
+/* 170 */,
+/* 171 */,
+/* 172 */,
+/* 173 */,
+/* 174 */,
+/* 175 */,
+/* 176 */,
+/* 177 */,
+/* 178 */,
+/* 179 */,
+/* 180 */,
+/* 181 */,
+/* 182 */,
+/* 183 */,
+/* 184 */,
+/* 185 */,
+/* 186 */,
+/* 187 */,
+/* 188 */,
+/* 189 */,
+/* 190 */,
+/* 191 */,
+/* 192 */,
+/* 193 */,
+/* 194 */,
+/* 195 */,
+/* 196 */,
+/* 197 */,
+/* 198 */,
+/* 199 */,
+/* 200 */,
+/* 201 */,
+/* 202 */,
+/* 203 */,
+/* 204 */,
+/* 205 */,
+/* 206 */,
+/* 207 */,
+/* 208 */,
+/* 209 */,
+/* 210 */,
+/* 211 */,
+/* 212 */,
+/* 213 */,
+/* 214 */,
+/* 215 */,
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _cache = __webpack_require__(5);
+
+var _cache2 = _interopRequireDefault(_cache);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var app = {
+  state: {
+    currentPage: 'common.home',
+    notCachePages: ['common.login', 'common.error-404', 'common.error-403', 'common.error-500', 'common.lock'],
+    openPageList: [{
+      meta: { title: '首页' },
+      path: '/admin/home',
+      name: 'common.home'
+    }],
+    body: {
+      width: document.body.clientWidth,
+      height: document.body.clientHeight
+    },
+    layoutContent: {
+      height: 0
+    }
+  },
+  mutations: {
+    init: function init(state) {
+      state.openPageList = _cache2.default.$cache.get('openPageList') || state.openPageList;
+      state.currentPage = _cache2.default.$cache.get('currentPage') || state.currentPage;
+      state.body.width = document.body.clientWidth;
+      state.body.height = document.body.clientHeight;
+      state.layoutContent.height = state.body.height - 42 - 60;
+      window.addEventListener('resize', function () {
+        state.body.width = document.body.clientWidth;
+        state.body.height = document.body.clientHeight;
+        state.layoutContent.height = state.body.height - 42 - 60;
+      });
+    },
+    openPage: function openPage(state, router) {
+      var exist = state.notCachePages.find(function (val) {
+        return val === router.name;
+      });
+      if (!exist) {
+        if (state.openPageList.findIndex(function (n) {
+          return n.name === router.name;
+        }) === -1) {
+          state.openPageList.push({
+            meta: router.meta,
+            path: router.path,
+            name: router.name
+          });
+          _cache2.default.$cache.set('openPageList', state.openPageList);
+        }
+        state.currentPage = router.name;
+        _cache2.default.$cache.set('currentPage', state.currentPage);
+      }
+    },
+    closePage: function closePage(state, data) {
+      var closePage = state.openPageList[data.index];
+      if ((typeof closePage === 'undefined' ? 'undefined' : _typeof(closePage)) === 'object') {
+        if (closePage.name === state.currentPage) {
+          state.currentPage = state.openPageList[data.index - 1].name;
+          _cache2.default.$cache.set('currentPage', state.currentPage);
+          data.vm.$router.push(state.openPageList[data.index - 1]);
+        }
+        state.openPageList.splice(data.index, 1);
+        _cache2.default.$cache.set('openPageList', state.openPageList);
+      }
+    },
+    closePages: function closePages(state, data) {
+      if (data.name === 'closeAll') {
+        state.openPageList.splice(1);
+        _cache2.default.$cache.set('openPageList', state.openPageList);
+        if (state.currentPage !== state.openPageList[0].name) {
+          state.currentPage = state.openPageList[0].name;
+          _cache2.default.$cache.set('currentPage', state.currentPage);
+          data.vm.$router.push(state.openPageList[0]);
+        }
+      } else {
+        var index = state.openPageList.findIndex(function (n) {
+          return n.name === state.currentPage;
+        });
+        var arr = [];
+
+        arr.push(state.openPageList[0]);
+        if (index !== 0) {
+          arr.push(state.openPageList[index]);
+        }
+        state.openPageList = arr;
+        _cache2.default.$cache.set('openPageList', state.openPageList);
+      }
+    },
+    savePageCache: function savePageCache(state, cache) {
+      _cache2.default.$cache.set(state.currentPage + '_formSaveDraft', cache);
+    }
+  },
+  actions: {
+    getSavePageCache: function getSavePageCache(state) {
+      return _cache2.default.$cache.get(state.state.currentPage + '_formSaveDraft');
+    }
+  }
+};
+
+exports.default = app;
 
 /***/ })
 ],[23]);

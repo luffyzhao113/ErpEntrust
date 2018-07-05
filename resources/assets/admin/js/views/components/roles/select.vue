@@ -1,5 +1,5 @@
 <template>
-    <Select v-model="model" placeholder="请选择角色" @on-change="setValue" clearable>
+    <Select v-model="model" placeholder="请选择角色" @on-change="setValue" clearable filterable>
         <Option v-for="(item, index) in roles" :key="index" :value="item.id">{{item.name}}</Option>
     </Select>
 </template>

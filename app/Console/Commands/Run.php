@@ -38,11 +38,16 @@ class Run extends Command
      */
     public function handle()
     {
-        $this->call('jwt:key');
-        // 创建数据库
-        $this->call('migrate:fresh');
-
-        $this->initial();
+        $this->call('jwt:secret');
+        // 创建数据表
+        if($this->confirm('是否需要创建数据表')) {
+            $this->call('migrate:fresh');
+        }
+        // 初始化数据
+        if($this->confirm('是否初始化数据')){
+            $this->initial();
+            $this->call('db:seed');
+        }
     }
 
     /**

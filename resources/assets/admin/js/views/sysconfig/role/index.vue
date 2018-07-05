@@ -1,6 +1,6 @@
 <template>
     <my-lists v-model="data" :columns="columns" @change="search">
-        <Card :bordered="false">
+        <Card>
             <p slot="title">
                 <span>搜索</span>
             </p>

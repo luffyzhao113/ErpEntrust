@@ -2,7 +2,7 @@
     <div>
         <slot></slot>
         <div class="box-flex-list">
-            <Card :bordered="false">
+            <Card>
                 <p slot="title">
                     <span>列表</span>
                     <slot name="button"></slot>

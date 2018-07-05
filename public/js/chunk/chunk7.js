@@ -1,14 +1,14 @@
 webpackJsonp([7],{
 
-/***/ 112:
+/***/ 111:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(230)
+var __vue_script__ = __webpack_require__(229)
 /* template */
-var __vue_template__ = __webpack_require__(231)
+var __vue_template__ = __webpack_require__(230)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -25,7 +25,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources\\assets\\admin\\js\\views\\common\\Lock.vue"
+Component.options.__file = "resources\\assets\\admin\\js\\views\\common\\Login.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -34,9 +34,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-522894a8", Component.options)
+    hotAPI.createRecord("data-v-4bc13190", Component.options)
   } else {
-    hotAPI.reload("data-v-522894a8", Component.options)
+    hotAPI.reload("data-v-4bc13190", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -48,19 +48,19 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 127:
+/***/ 129:
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(128)
+  __webpack_require__(130)
 }
 var normalizeComponent = __webpack_require__(3)
 /* script */
-var __vue_script__ = __webpack_require__(130)
+var __vue_script__ = __webpack_require__(132)
 /* template */
-var __vue_template__ = __webpack_require__(131)
+var __vue_template__ = __webpack_require__(133)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -100,13 +100,13 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 128:
+/***/ 130:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(129);
+var content = __webpack_require__(131);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -127,7 +127,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 129:
+/***/ 131:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(1)(false);
@@ -142,7 +142,7 @@ exports.push([module.i, "\n.login {\n  width: 100%;\n  height: 100%;\n  backgrou
 
 /***/ }),
 
-/***/ 130:
+/***/ 132:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -180,7 +180,7 @@ exports.default = {
 
 /***/ }),
 
-/***/ 131:
+/***/ 133:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -230,17 +230,17 @@ if (false) {
 
 /***/ }),
 
-/***/ 230:
+/***/ 229:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
-var _loginLock = __webpack_require__(127);
+var _loginLock = __webpack_require__(129);
 
 var _loginLock2 = _interopRequireDefault(_loginLock);
 
@@ -270,39 +270,48 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 exports.default = {
-  components: { LoginLock: _loginLock2.default },
-  mixins: [_http2.default],
-  data: function data() {
-    return {
-      form: {
-        password: ''
-      }
-    };
-  },
+    data: function data() {
+        return {
+            form: {
+                email: '',
+                password: ''
+            }
+        };
+    },
 
-  methods: {
-    unlock: function unlock(name) {
-      var _this = this;
+    mixins: [_http2.default],
+    components: {
+        loginLock: _loginLock2.default
+    },
+    methods: {
+        login: function login(name) {
+            var _this = this;
 
-      this.$refs[name].validate(function (valid) {
-        if (valid) {
-          _this.$http.delete("auth/lock", { params: _this.form }).then(function () {
-            _this.$cache.set('locking', 0);
-            _this.$router.go(-1);
-          }).catch(function (res) {
-            _this.formatErrors(res);
-          });
+            this.$refs[name].validate(function (valid) {
+                if (valid) {
+                    _this.$http.post('auth', _this.form).then(function (res) {
+                        _this.$cache.set('token', res.data.data.token);
+                        _this.$router.replace({ name: 'common.home' });
+                    }).catch(function (res) {
+                        _this.formatErrors(res);
+                    });
+                }
+            });
         }
-      });
     }
-  }
 };
 
 /***/ }),
 
-/***/ 231:
+/***/ 230:
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -317,7 +326,7 @@ var render = function() {
         { attrs: { slot: "title" }, slot: "title" },
         [
           _c("Icon", { attrs: { type: "log-in" } }),
-          _vm._v("\n        登录锁定\n    ")
+          _vm._v("\n        欢迎登录\n    ")
         ],
         1
       ),
@@ -326,6 +335,50 @@ var render = function() {
         "Form",
         { ref: "form", attrs: { slot: "form", model: _vm.form }, slot: "form" },
         [
+          _c(
+            "FormItem",
+            {
+              attrs: {
+                prop: "email",
+                rules: {
+                  required: true,
+                  message: "邮箱格式不正确！",
+                  type: "email",
+                  min: 6,
+                  max: 20,
+                  trigger: "blur"
+                }
+              }
+            },
+            [
+              _c(
+                "Input",
+                {
+                  attrs: {
+                    type: "text",
+                    autocomplete: "off",
+                    placeholder: "E-mail"
+                  },
+                  model: {
+                    value: _vm.form.email,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "email", $$v)
+                    },
+                    expression: "form.email"
+                  }
+                },
+                [
+                  _c("Icon", {
+                    attrs: { slot: "prepend", type: "ios-email-outline" },
+                    slot: "prepend"
+                  })
+                ],
+                1
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
           _c(
             "FormItem",
             {
@@ -383,11 +436,11 @@ var render = function() {
                   attrs: { type: "primary", long: "" },
                   on: {
                     click: function($event) {
-                      _vm.unlock("form")
+                      _vm.login("form")
                     }
                   }
                 },
-                [_vm._v("解锁")]
+                [_vm._v("登录")]
               )
             ],
             1
@@ -405,7 +458,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-522894a8", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-4bc13190", module.exports)
   }
 }
 
