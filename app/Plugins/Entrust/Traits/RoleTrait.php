@@ -5,7 +5,7 @@
  * @author luffyzhao@vip.126.com
  */
 
-namespace App\Entrust\Traits;
+namespace App\Plugins\Entrust\Traits;
 
 use Illuminate\Cache\TaggableStore;
 use Illuminate\Support\Facades\Config;
@@ -18,25 +18,19 @@ trait RoleTrait
      * @var
      * @author luffyzhao@vip.126.com
      */
-//    protected $entrustUserModel;
-    /**
-     * 用户与角色中间表
-     * @var
-     * @author luffyzhao@vip.126.com
-     */
-//    protected $entrustRoleUserTable;
+//    protected $entrustUserModel = Model::class;
     /**
      * 权限模型
      * @var
      * @author luffyzhao@vip.126.com
      */
-//    protected $entrustPermissionModel;
+//    protected $entrustPermissionModel = Model::class;
     /**
      * 角色与权限中间表
      * @var
      * @author luffyzhao@vip.126.com
      */
-//    protected $entrustPermissionRoleTable;
+//    protected $entrustPermissionRoleTable = '';
 
     /**
      * 缓存角色下所有的权限
@@ -82,7 +76,7 @@ trait RoleTrait
             return false;
         }
         if (Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(get_class($this))->flush();
+            Cache::tags('BaseAuth')->flush();
         }
         return true;
     }
@@ -102,7 +96,7 @@ trait RoleTrait
             return false;
         }
         if (Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(get_class($this))->flush();
+            Cache::tags('BaseAuth')->flush();
         }
         return true;
     }
@@ -122,7 +116,7 @@ trait RoleTrait
             return false;
         }
         if (Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(get_class($this))->flush();
+            Cache::tags('BaseAuth')->flush();
         }
         return true;
     }

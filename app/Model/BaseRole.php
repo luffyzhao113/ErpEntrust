@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Entrust\Traits\RoleTrait;
+use App\Plugins\Entrust\Traits\RoleTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -11,8 +11,6 @@ class BaseRole extends Model
     use RoleTrait;
 
     protected $entrustUserModel = BaseAdmin::class;
-
-    protected $entrustRoleUserTable = 'base_role_admin';
 
     protected $entrustPermissionModel = BasePermission::class;
 

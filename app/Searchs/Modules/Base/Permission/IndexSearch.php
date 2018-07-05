@@ -16,6 +16,8 @@ class IndexSearch extends SearchAbstract
      * @param $val
      * @param $data
      *
+     * @return bool
+     *
      * @author luffyzhao@vip.126.com
      */
     protected function getIslinkAttribute($val, $data){

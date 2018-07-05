@@ -38,6 +38,7 @@ class Run extends Command
      */
     public function handle()
     {
+        $this->call('jwt:key');
         // 创建数据库
         $this->call('migrate:fresh');
 

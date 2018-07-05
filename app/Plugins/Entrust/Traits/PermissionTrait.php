@@ -5,7 +5,7 @@
  * @author luffyzhao@vip.126.com
  */
 
-namespace App\Entrust\Traits;
+namespace App\Plugins\Entrust\Traits;
 
 
 use Illuminate\Support\Facades\Config;
@@ -17,13 +17,13 @@ trait PermissionTrait
      * @var
      * @author luffyzhao@vip.126.com
      */
-//    protected $entrustPermissionModel;
+//    protected $entrustPermissionModel = Model::class;
     /**
      * 角色与权限中间表
      * @var
      * @author luffyzhao@vip.126.com
      */
-//    protected $entrustPermissionRoleTable;
+//    protected $entrustPermissionRoleTable = '';
 
     /**
      * 多对多关联角色模型

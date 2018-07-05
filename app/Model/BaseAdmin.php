@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-use App\Entrust\Traits\AdminTrait;
+use App\Plugins\Entrust\Traits\AdminTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -19,7 +19,6 @@ class BaseAdmin extends Authenticatable implements JWTSubject
 
     protected $entrustRoleModel = BaseRole::class;
 
-    protected $entrustRoleUserTable = 'base_role_admin';
 
     /**
      * 自动加密

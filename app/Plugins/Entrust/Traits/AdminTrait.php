@@ -1,25 +1,21 @@
-<?php namespace App\Entrust\Traits;
+<?php namespace App\Plugins\Entrust\Traits;
 
 
 use Illuminate\Cache\TaggableStore;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Config;
 use InvalidArgumentException;
 
 trait AdminTrait
 {
-//    /**
-//     * 用户对应角色模型
-//     * @var
-//     * @author luffyzhao@vip.126.com
-//     */
-//    protected $entrustRoleModel;
-//    /**
-//     * 用户与角色关联表
-//     * @var
-//     * @author luffyzhao@vip.126.com
-//     */
-//    protected $entrustRoleUserTable;
+    /**
+     * 用户对应角色模型
+     * @var
+     * @author luffyzhao@vip.126.com
+     */
+//    protected $entrustRoleModel = Model::class;
+
     /**
      * 在缓存开启状态下缓存用户下的所有角色
      * @method cachedRoles
@@ -53,7 +49,7 @@ trait AdminTrait
     public function save(array $options = [])
     {   //both inserts and updates
         if(Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(get_class($this))->flush();
+            Cache::tags('BaseAuth')->flush();
         }
         return parent::save($options);
     }
@@ -71,7 +67,7 @@ trait AdminTrait
     {   //soft or hard
         $result = parent::delete($options);
         if(Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(get_class($this))->flush();
+            Cache::tags('BaseAuth')->flush();
         }
         return $result;
     }
@@ -88,7 +84,7 @@ trait AdminTrait
     {   //soft delete undo's
         $result = parent::restore();
         if(Cache::getStore() instanceof TaggableStore) {
-            Cache::tags(get_class($this))->flush();
+            Cache::tags('BaseAuth')->flush();
         }
         return $result;
     }

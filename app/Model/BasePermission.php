@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
-use App\Entrust\Traits\PermissionTrait;
+use App\Plugins\Entrust\Traits\PermissionTrait;
 
 class BasePermission extends Model
 {

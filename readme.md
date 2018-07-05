@@ -2,27 +2,17 @@
 
 `ErpEntrust` 权限管理系统基于 `laravel` `5.6`，目前实现的功能有：后台用户管理、后台角色管理、后台权限管理、日志管理等。
 
-### composer 依赖安装
+### 安装
 
-```
 composer update
-```
 
-### npm 依赖安装
-```
-npm install
-```
+php artisan key:generate
 
-### 创建项目初始数据
-```
 php artisan run:app
-```
-### 启动
-```
-php artisan serve
-```
 
-> 后台地址 `http://127.0.0.1:8000/admin`  登录邮箱 `luffyzhao@vip.126.com` 密码 `123456`
+php artisan serve
+
+后台地址 `http://127.0.0.1:8000/admin`  登录邮箱 `luffyzhao@vip.126.com` 密码 `123456`
 
 ### dome
 
@@ -30,5 +20,6 @@ php artisan serve
 
 ### 手册
 
-[开发手册](./storage/doc/开发手册.md)
+[前端开发手册](storage/doc/前端开发手册.md)
 
+[后台开发手册](storage/doc/后台开发手册.md)
