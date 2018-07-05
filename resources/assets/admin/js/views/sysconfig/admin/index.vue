@@ -1,6 +1,32 @@
 <template>
     <my-lists v-model="data" :columns="columns" @change="search">
-        <Button slot="button" size="small" type="success" @click="showComponent('Create')">添加</Button>
+
+        <Card :bordered="false">
+            <p slot="title">
+                <span>搜索</span>
+            </p>
+            <Form ref="searchForm" :model="searchForm" :label-width="80" inline>
+                <FormItem prop="role_id" label="所属角色" :label-width="60">
+                    <roles-select v-model="searchForm.role_id"></roles-select>
+                </FormItem>
+                <FormItem prop="name" label="用户名" :label-width="50">
+                    <Input type="text" v-model="searchForm.name"></Input>
+                </FormItem>
+                <FormItem prop="email" label="邮箱" :label-width="40">
+                    <Input type="text" v-model="searchForm.email"></Input>
+                </FormItem>
+                <FormItem prop="status" label="状态" :label-width="40">
+                    <Select v-model="searchForm.status" clearable>
+                        <Option :value="1">开启</Option>
+                        <Option :value="0">关闭</Option>
+                    </Select>
+                </FormItem>
+                <FormItem :label-width="1">
+                    <Button @click="search(1)" type="primary">搜索</Button>
+                    <Button @click="showComponent('Create')" type="warning">添加</Button>
+                </FormItem>
+            </Form>
+        </Card>
         <components v-bind:is="component.current" @on-change="hideComponent" :data="component.data"></components>
     </my-lists>
 </template>
@@ -10,16 +36,22 @@
     import lists from "../../../mixins/lists";
     import Update from "./update";
     import Create from "./create"
+    import RolesSelect from "../../components/roles/select";
     
     export default {
         name: "index",
-        components: {MyLists, Create, Update},
+        components: {
+          RolesSelect,
+          MyLists, Create, Update},
         mixins: [lists],
         data(){
             return {
                 columns: [{
                     title: '登录邮箱',
                     key: 'email'
+                },{
+                  title: '用户名称',
+                  key: 'name'
                 }, {
                     title: '所属角色',
                     render: (h, {row}) => {

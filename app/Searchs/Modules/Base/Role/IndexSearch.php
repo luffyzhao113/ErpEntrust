@@ -7,6 +7,6 @@ use luffyzhao\laravelTools\Searchs\Facades\SearchAbstract;
 class IndexSearch extends SearchAbstract
 {
     protected $relationship = [
-
+        'name' => '='
     ];
 }

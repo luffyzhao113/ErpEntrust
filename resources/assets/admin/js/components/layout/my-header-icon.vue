@@ -11,6 +11,14 @@
                 <Icon type="locked" size="20"></Icon>
             </Tooltip>
         </div>
+
+        <div class="layout-header-right-icon-item"  @click="handleMessage">
+            <Tooltip placement="bottom" :content="`有 10 条消息未读`">
+                <Badge dot>
+                    <Icon type="ios-bell" size="22"></Icon>
+                </Badge>
+            </Tooltip>
+        </div>
     </div>
 </template>
 
@@ -58,6 +66,11 @@
                 this.$router.push({
                     name: 'common.lock'
                 })
+            },
+            handleMessage(){
+              this.$router.push({
+                name: 'common.message'
+              })
             }
         },
         created () {

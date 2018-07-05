@@ -46,7 +46,7 @@ class AdminController extends Controller
             $this->repo->make($make)->paginate(
                 $search->toArray(),
                 20,
-                ['id', 'email', 'status', 'role_id']
+                ['id', 'email', 'status', 'role_id', 'name']
             )
         );
     }

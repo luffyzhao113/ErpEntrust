@@ -1156,16 +1156,16 @@
         },
         {
             "name": "luffyzhao/laravel-tools",
-            "version": "v1.3",
+            "version": "v1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/luffyzhao/luffy-laravel-tools.git",
-                "reference": "4fd1a6ed52f09bc10e2e3f303b1b81356ac4a2ae"
+                "reference": "bcce500b2551bd72d08664cf4e395541c55d28ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/luffyzhao/luffy-laravel-tools/zipball/4fd1a6ed52f09bc10e2e3f303b1b81356ac4a2ae",
-                "reference": "4fd1a6ed52f09bc10e2e3f303b1b81356ac4a2ae",
+                "url": "https://api.github.com/repos/luffyzhao/luffy-laravel-tools/zipball/bcce500b2551bd72d08664cf4e395541c55d28ef",
+                "reference": "bcce500b2551bd72d08664cf4e395541c55d28ef",
                 "shasum": ""
             },
             "require": {
@@ -1201,20 +1201,20 @@
                     "email": "luffyzhao@vip.126.com"
                 }
             ],
-            "time": "2018-07-05T04:21:13+00:00"
+            "time": "2018-07-05T07:00:24+00:00"
         },
         {
             "name": "maatwebsite/excel",
-            "version": "3.0.6",
+            "version": "3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Maatwebsite/Laravel-Excel.git",
-                "reference": "61bb806573f5c1a8afa3ef5e67152083489537b0"
+                "reference": "7c4e3d9a2a04a3e3e6bd0c21cad42fcca65c10b1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/61bb806573f5c1a8afa3ef5e67152083489537b0",
-                "reference": "61bb806573f5c1a8afa3ef5e67152083489537b0",
+                "url": "https://api.github.com/repos/Maatwebsite/Laravel-Excel/zipball/7c4e3d9a2a04a3e3e6bd0c21cad42fcca65c10b1",
+                "reference": "7c4e3d9a2a04a3e3e6bd0c21cad42fcca65c10b1",
                 "shasum": ""
             },
             "require": {
@@ -1265,7 +1265,7 @@
                 "php",
                 "phpspreadsheet"
             ],
-            "time": "2018-06-12T09:42:31+00:00"
+            "time": "2018-07-05T06:24:59+00:00"
         },
         {
             "name": "monolog/monolog",

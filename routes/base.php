@@ -17,6 +17,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::delete('auth', 'AuthController@destroy')->name('auth.destroy');
     Route::delete('auth/lock', 'AuthController@lock')->name('auth.lock');
     Route::get('auth/logs', 'AuthController@logs');
+    Route::get('auth/message', 'Auth\MessageController@index');
 
     Route::get('role/select', 'RoleController@select');
     Route::post('file', 'FileController@store')->name('file.store');

@@ -1,6 +1,20 @@
 <template>
     <my-lists v-model="data" :columns="columns" @change="search">
-        <Button slot="button" size="small" type="success" @click="showComponent('Create')">添加</Button>
+        <Card :bordered="false">
+            <p slot="title">
+                <span>搜索</span>
+            </p>
+            <Form ref="searchForm" :model="searchForm" inline>
+                <FormItem prop="name" label="角色名称" :label-width="60">
+                    <Input type="text" v-model="searchForm.name"></Input>
+                </FormItem>
+                <FormItem :label-width="1">
+                    <Button @click="search(1)" type="primary">搜索</Button>
+                    <Button @click="showComponent('Create')" type="warning">添加</Button>
+                </FormItem>
+            </Form>
+        </Card>
+
         <components v-bind:is="component.current" @on-change="hideComponent" :data="component.data"></components>
     </my-lists>
 </template>

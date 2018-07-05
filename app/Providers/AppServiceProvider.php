@@ -10,6 +10,7 @@ use App\Repositories\Modules\BaseAdmin\Provider AS BaseAdmin;
 use App\Repositories\Modules\BasePermission\Provider AS BasePermission;
 use App\Repositories\Modules\BaseRole\Provider AS BaseRole;
 use App\Repositories\Modules\BaseLogs\Provider AS BaseLogs;
+use App\Repositories\Modules\Notification\Provider as Notification;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -34,6 +35,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        $this->app->register(Notification::class);
         $this->app->register(BaseAdmin::class);
         $this->app->register(BasePermission::class);
         $this->app->register(BaseRole::class);

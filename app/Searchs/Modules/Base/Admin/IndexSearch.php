@@ -13,5 +13,40 @@ use luffyzhao\laravelTools\Searchs\Facades\SearchAbstract;
 
 class IndexSearch extends SearchAbstract
 {
-    protected $relationship = [];
+    protected $relationship = [
+        'role_id' => '=',
+        'name' => 'like',
+        'status' => '',
+        'email' => 'like'
+    ];
+
+    /**
+     * name模糊查询
+     * @method getNameAttribute
+     * @param $value
+     * @param $data
+     *
+     * @return string
+     *
+     * @author luffyzhao@vip.126.com
+     */
+    protected function getNameAttribute($value, $data)
+    {
+        return "%{$value}%";
+    }
+
+    /**
+     * email模糊查询
+     * @method getEmailAttribute
+     * @param $value
+     * @param $data
+     *
+     * @return string
+     *
+     * @author luffyzhao@vip.126.com
+     */
+    protected function getEmailAttribute($value, $data)
+    {
+        return "%{$value}%";
+    }
 }
