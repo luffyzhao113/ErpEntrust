@@ -17,7 +17,8 @@ Route::group(['middleware' => 'auth'], function (){
     Route::delete('auth', 'AuthController@destroy')->name('auth.destroy');
     Route::delete('auth/lock', 'AuthController@lock')->name('auth.lock');
     Route::get('auth/logs', 'AuthController@logs');
-    Route::get('auth/message', 'Auth\MessageController@index');
+    Route::get('auth/message/not-read', 'Auth\MessageController@notRead');
+    Route::apiResource('auth/message', 'Auth\MessageController');
 
     Route::get('role/select', 'RoleController@select');
     Route::get('admin/select', 'AdminController@select');

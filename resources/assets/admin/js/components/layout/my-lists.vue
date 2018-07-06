@@ -2,12 +2,12 @@
     <div>
         <slot></slot>
         <div class="box-flex-list">
-            <Card>
+            <Card dis-hover>
                 <p slot="title">
-                    <span>列表</span>
+                    <slot name="title"><span>列表</span></slot>
                     <slot name="button"></slot>
                 </p>
-                <Table :columns="tableCol" :data="value.data" size="small" ref="table"></Table>
+                <Table :columns="tableCol" :data="value.data" size="small" ref="table" :row-class-name="rowClassName"></Table>
                 <Page :total="value.page.total" size="small" :current="value.page.current" :page-size="value.page.page_size" show-total @on-change="change"></Page>
             </Card>
         </div>
@@ -47,11 +47,17 @@
         methods: {
             change(v){
                 this.$emit('change', v);
+            },
+            rowClassName(row, index){
+
             }
         }
     }
 </script>
 
 <style scoped>
-
+    .ivu-table .table-info-row td{
+        background-color: #2db7f5;
+        color: #fff;
+    }
 </style>

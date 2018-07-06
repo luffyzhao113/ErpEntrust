@@ -13,8 +13,8 @@
         </div>
 
         <div class="layout-header-right-icon-item"  @click="handleMessage">
-            <Tooltip placement="bottom" :content="`有 10 条消息未读`">
-                <Badge dot>
+            <Tooltip placement="bottom" :content="`有 ${messageTotal} 条消息未读`">
+                <Badge dot :count="messageTotal">
                     <Icon type="ios-bell" size="22"></Icon>
                 </Badge>
             </Tooltip>
@@ -33,6 +33,9 @@
         computed: {
             showFullScreenBtn () {
                 return window.navigator.userAgent.indexOf('MSIE') < 0
+            },
+            messageTotal(){
+              return this.$store.state.Messages.total
             }
         },
         methods: {
@@ -93,6 +96,7 @@
                 this.$emit('on-change', !this.fullScreen)
             })
             this.$emit('input', isFullscreen)
+            this.$store.dispatch('getMessageNotReadTotal')
         },
         components: {}
     }

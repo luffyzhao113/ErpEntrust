@@ -52,7 +52,7 @@ export const IndexRouter = [
     name: 'common.message',
     meta: {title: '消息管理'},
     component: resolve => {
-      require(['../../views/common/messages.vue'], resolve)
+      require(['../../views/common/message/messages.vue'], resolve)
     }
   }
 ]

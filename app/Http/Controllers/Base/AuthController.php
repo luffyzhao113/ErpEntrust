@@ -14,6 +14,7 @@ use App\Http\Requests\Base\Auth\LockRequest;
 use App\Http\Requests\Base\Auth\PhotoRequest;
 use App\Http\Requests\Base\Auth\StoreRequest;
 use App\Http\Requests\Base\Auth\UserRequest;
+use App\Notifications\Welcome;
 use App\Repositories\Modules\BaseAdmin\Interfaces;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -51,6 +52,8 @@ class AuthController extends Controller
         if (!$token) {
             return $this->respondWithError('用户不存在,或者密码不正确！');
         }
+        // 登录通知
+        auth('base')->user()->notify(new Welcome(auth('base')->user()));
 
         return $this->respondWithSuccess(
             [

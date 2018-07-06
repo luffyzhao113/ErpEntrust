@@ -32,19 +32,19 @@ export const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   iView.LoadingBar.start()
-  if(to.matched.length > 0 && to.matched[0].name === 'admin'){
+  if(to.matched.length > 0){
     // 判断当前是否是锁定状态
     if (CachePlugins.$cache.get('locking') === 1 && to.name !== 'common.lock') {
       next({name: 'common.lock'})
     } else if (CachePlugins.$cache.get('locking') === 0 && to.name === 'common.lock') {
-      next({name: 'admin.home'})
+      next({name: 'common.home'})
     } else {
       // 判断是否已经登录且前往的页面不是登录页
       if (!CachePlugins.$cache.get('token') && to.name !== 'common.login') {
         next({name: 'common.login'})
         // 判断是否已经登录且前往的是登录页
       } else if (CachePlugins.$cache.get('token') && to.name === 'common.login') {
-        next({name: 'admin.home'})
+        next({name: 'common.home'})
       } else {
         next()
       }
