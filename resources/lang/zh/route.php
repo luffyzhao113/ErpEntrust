@@ -23,4 +23,5 @@ return [
     'PUT:base/role/{role}' => '修改后台角色',
     'DELETE:base/role/{role}' => '删除后台角色',
     'POST:base/role/{role}/permission' => '给后台角色分配权限&菜单',
+    'PUT:base/auth/message/{message}' => '查看未读通知'
 ];
