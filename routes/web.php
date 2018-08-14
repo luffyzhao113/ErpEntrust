@@ -11,6 +11,4 @@
 |
 */
 
-Route::get('/admin', function () {
-    return view('admin');
-});
+Route::get('/admin', 'Web\AdminController@admin');
